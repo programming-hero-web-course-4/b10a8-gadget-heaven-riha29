@@ -1,6 +1,6 @@
 // src/App.js
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CartPage from './pages/CartPage';
 import WishlistPage from './pages/WishlistPage';
@@ -10,12 +10,13 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/cart" component={CartPage} />
-          <Route path="/wishlist" component={WishlistPage} />
-          <Route path="/product/:id" component={ProductDetailsPage} />
-        </Switch>
+        {/* Define the routes for different pages */}
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/wishlist" element={<WishlistPage />} />
+          <Route path="/product/:id" element={<ProductDetailsPage />} />
+        </Routes>
       </div>
     </Router>
   );
