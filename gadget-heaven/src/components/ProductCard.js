@@ -18,7 +18,7 @@ function ProductCard({ product }) {
       <p className="text-gray-600">Price: ${product.price}</p>
       <button
         onClick={handleViewDetails}
-        className="mt-4 bg-purple-500 text-white px-4 py-2 rounded-full"
+        className="mt-4 border border-purple-500 text-purple-500 px-4 py-2 rounded-full"
       >
         View Details
       </button>

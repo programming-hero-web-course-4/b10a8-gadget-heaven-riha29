@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-white py-12">
+    <footer className="bg-gray-100 py-12">
       <div className="max-w-5xl mx-auto text-center px-4">
         {/* Logo and Tagline */}
         <h1 className="text-2xl font-bold mb-2">Gadget Heaven</h1>

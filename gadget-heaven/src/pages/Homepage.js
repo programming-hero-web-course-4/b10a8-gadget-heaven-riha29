@@ -26,7 +26,7 @@ const HomePage = () => {
       <Helmet>
         <title>Home - Gadget Heaven</title>
       </Helmet>
-      <Navbar />  {/* Navbar with cart and wishlist */}
+      <Navbar />
       <Banner />
 
       <div className="max-w-7xl mx-auto px-4 py-8">

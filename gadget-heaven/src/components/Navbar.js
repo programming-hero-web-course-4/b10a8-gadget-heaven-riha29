@@ -1,13 +1,18 @@
-// src/components/Navbar.js
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function Navbar() {
   const { cart, wishlist } = useContext(CartContext);
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
+  const navbarClasses = isHomePage
+    ? "flex justify-between items-center p-4 mx-4 mt-4 rounded-t-2xl bg-purple-700 text-white"
+    : "flex justify-between items-center p-4 bg-white text-black" ;
 
   return (
-    <nav className="flex mx-4 mt-4 rounded-t-2xl justify-between items-center p-4 bg-purple-700 text-white">
+    <nav className= {navbarClasses}>
       {/* Logo */}
       <Link to="/" className="text-xl font-bold">
         Gadget Heaven
