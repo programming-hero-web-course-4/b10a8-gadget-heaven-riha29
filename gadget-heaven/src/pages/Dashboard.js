@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 function Dashboard() {
-  const { cart, wishlist, setCart, removeFromCart, removeFromWishlist } = useContext(CartContext);
+  const { cart, setCart, wishlist, removeFromCart, removeFromWishlist } = useContext(CartContext);
   const [activeTab, setActiveTab] = useState('cart');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
@@ -15,10 +15,12 @@ function Dashboard() {
   // Calculate total price of cart items
   const totalPrice = cart.reduce((total, item) => total + item.price, 0);
 
-  // Sort items by price (descending)
   const handleSortByPrice = () => {
-    setCart([...cart].sort((a, b) => b.price - a.price));
+    // Create a new array, sort it by price in descending order, and update the cart state
+    const sortedCart = [...cart].sort((a, b) => (b.price - a.price)); // Descending order
+    setCart(sortedCart);
   };
+  
 
   // Handle purchase
   const handlePurchase = () => {

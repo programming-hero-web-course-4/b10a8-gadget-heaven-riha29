@@ -5,6 +5,8 @@ import { Link, useLocation } from 'react-router-dom';
 function Navbar() {
   const { cart, wishlist } = useContext(CartContext);
   const location = useLocation();
+  const isActive = (path) => location.pathname === path;
+
 
   const isHomePage = location.pathname === '/';
   const navbarClasses = isHomePage
@@ -20,9 +22,36 @@ function Navbar() {
 
       {/* Centered Navigation Links */}
       <div className="flex space-x-8 text-lg">
-        <Link to="/" className="hover:text-gray-300">Home</Link>
-        <Link to="/statistics" className="hover:text-gray-300">Statistics</Link>
-        <Link to="/dashboard" className="hover:text-gray-300">Dashboard</Link>
+        <Link
+          to="/"
+          className={`hover:text-purple-700 ${
+            isActive('/') ? 'underline' : ''
+          }`}
+        >
+          Home
+        </Link>
+        <Link
+          to="/statistics"
+          className={`hover:text-purple-700 ${
+            isActive('/statistics') ? 'underline' : ''
+          }`}
+        >
+          Statistics
+        </Link>
+        <Link
+          to="/dashboard"
+          className={`hover:text-purple-700 ${
+            isActive('/dashboard') ? 'underline' : ''
+          }`}
+        >
+          Dashboard
+        </Link>
+        <Link
+          to="/about"
+          className={`hover:text-purple-700 ${isActive('/about') ? 'underline' : ''}`}
+        >
+          About Us
+        </Link>
       </div>
 
       {/* Cart and Wishlist Icons */}

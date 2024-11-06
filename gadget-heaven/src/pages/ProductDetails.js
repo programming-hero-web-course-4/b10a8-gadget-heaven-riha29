@@ -53,7 +53,7 @@ function ProductDetails() {
         <p className='max-w-3xl text-center mx-auto py-4'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
       </div>
 
-      <div className="bg-white shadow-lg mb-24 -mt-72 max-w-3xl mx-auto rounded-lg p-8 mt-4 flex space-x-8">
+      <div className="bg-white shadow-lg mb-24 -mt-72 relative max-w-3xl mx-auto rounded-lg p-8 mt-4 flex space-x-8">
         {/* Product Image */}
         <div className="w-1/3">
           <img src={product.product_image} alt={product.product_title} className="w-full h-auto rounded-lg" />

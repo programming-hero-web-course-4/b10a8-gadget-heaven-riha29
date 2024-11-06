@@ -22,30 +22,29 @@ const CartProvider = ({ children }) => {
   }, [cart, wishlist]);
 
   const addToCart = (product) => {
-    setCart((prevCart) => [...prevCart, product]);
+    if (!cart.some((item) => item.product_id === product.product_id)) {
+      setCart((prevCart) => [...prevCart, product]);
+    }
   };
 
   const addToWishlist = (product) => {
-    setWishlist((prevWishlist) => {
-      if (!prevWishlist.find(item => item.product_id === product.product_id)) {
-        return [...prevWishlist, product];
-      }
-      return prevWishlist;
-    });
+    if (!wishlist.some((item) => item.product_id === product.product_id)) {
+      setWishlist((prevWishlist) => [...prevWishlist, product]);
+    }
   };
 
   const removeFromCart = (productId) => {
     setCart((prevCart) => prevCart.filter((item) => item.product_id !== productId));
   };
 
-  // Remove item from wishlist and cart if it exists in both
   const removeFromWishlist = (productId) => {
     setWishlist((prevWishlist) => prevWishlist.filter((item) => item.product_id !== productId));
-    // setCart((prevCart) => prevCart.filter((item) => item.product_id !== productId));
+    // Optional: Remove from cart if the product exists there as well
+    setCart((prevCart) => prevCart.filter((item) => item.product_id !== productId));
   };
 
   return (
-    <CartContext.Provider value={{ cart, wishlist, addToCart, addToWishlist, removeFromCart, removeFromWishlist }}>
+    <CartContext.Provider value={{ cart, setCart, wishlist, addToCart, addToWishlist, removeFromCart, removeFromWishlist }}>
       {children}
     </CartContext.Provider>
   );
