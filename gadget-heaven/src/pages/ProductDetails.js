@@ -1,13 +1,13 @@
-// src/pages/ProductDetails.js
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify'; // Import toast from react-toastify
+import { toast } from 'react-toastify';
 import { CartContext } from '../context/CartContext';
 import { products } from '../data';
 import ReactStars from 'react-rating-stars-component';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import NotFound from './NotFound';
 
 function ProductDetails() {
   const { productId } = useParams();
@@ -18,7 +18,7 @@ function ProductDetails() {
   );
 
   if (!product) {
-    return <div>Product not found</div>;
+    return {NotFound};
   }
 
   const handleAddToCart = () => {
@@ -43,7 +43,7 @@ function ProductDetails() {
   };
 
   return (
-    <div>
+    <div className='absolute mx-auto w-full'>
       <Helmet>
         <title>{product.product_title} - Gadget Heaven</title>
       </Helmet>
@@ -53,7 +53,7 @@ function ProductDetails() {
         <p className='max-w-3xl text-center mx-auto py-4'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
       </div>
 
-      <div className="bg-white shadow-lg mb-24 -mt-72 relative max-w-3xl mx-auto rounded-lg p-8 mt-4 flex space-x-8">
+      <div className="bg-white shadow-lg mb-24 -mt-72 max-w-3xl mx-auto rounded-lg p-8 mt-4 flex space-x-8">
         {/* Product Image */}
         <div className="w-1/3">
           <img src={product.product_image} alt={product.product_title} className="w-full h-auto rounded-lg" />

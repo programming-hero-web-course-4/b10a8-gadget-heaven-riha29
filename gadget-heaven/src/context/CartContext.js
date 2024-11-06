@@ -1,4 +1,3 @@
-// src/contexts/CartContext.js
 import React, { createContext, useState, useEffect } from 'react';
 
 export const CartContext = createContext();
@@ -7,7 +6,6 @@ const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [wishlist, setWishlist] = useState([]);
 
-  // Load initial data from LocalStorage
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
     const storedWishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
@@ -15,7 +13,6 @@ const CartProvider = ({ children }) => {
     setWishlist(storedWishlist);
   }, []);
 
-  // Save cart and wishlist to LocalStorage whenever they change
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
     localStorage.setItem('wishlist', JSON.stringify(wishlist));
@@ -39,8 +36,6 @@ const CartProvider = ({ children }) => {
 
   const removeFromWishlist = (productId) => {
     setWishlist((prevWishlist) => prevWishlist.filter((item) => item.product_id !== productId));
-    // Optional: Remove from cart if the product exists there as well
-    setCart((prevCart) => prevCart.filter((item) => item.product_id !== productId));
   };
 
   return (

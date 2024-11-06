@@ -1,4 +1,3 @@
-// src/pages/HomePage.js
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import Navbar from '../components/Navbar';
@@ -17,8 +16,7 @@ const HomePage = () => {
     : products.filter((product) => product.category === selectedCategory);
 
   const handleViewDetails = (productId) => {
-    // Implement navigation to the details page, e.g., `navigate("/product/" + productId)`
-    console.log("View details for product ID:", productId); // Placeholder
+    console.log("View details for product ID:", productId);
   };
 
   return (
@@ -41,7 +39,7 @@ const HomePage = () => {
             />
           </div>
 
-          {/* Product Grid */}
+          {/* Product */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full">
             {filteredProducts.map((product) => (
               <ProductCard key={product.product_id} product={product} onViewDetails={handleViewDetails} />

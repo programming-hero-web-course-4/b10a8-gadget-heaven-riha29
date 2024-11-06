@@ -15,12 +15,10 @@ function Navbar() {
 
   return (
     <nav className= {navbarClasses}>
-      {/* Logo */}
       <Link to="/" className="text-xl font-bold">
         Gadget Heaven
       </Link>
 
-      {/* Centered Navigation Links */}
       <div className="flex space-x-8 text-lg">
         <Link
           to="/"
@@ -54,9 +52,7 @@ function Navbar() {
         </Link>
       </div>
 
-      {/* Cart and Wishlist Icons */}
       <div className="flex items-center space-x-6">
-        {/* Cart Icon with Badge */}
         <div className="relative rounded-3xl bg-white p-2">
           <img src={`${process.env.PUBLIC_URL}/cart.png`} alt="Cart" className="w-6 h-6 cursor-pointer" />
           {cart.length > 0 && (
@@ -66,7 +62,6 @@ function Navbar() {
           )}
         </div>
 
-        {/* Wishlist Icon with Badge */}
         <div className="relative rounded-3xl bg-white p-2">
           <img src={`${process.env.PUBLIC_URL}/heart.png`} alt="Wishlist" className="w-6 h-6 cursor-pointer" />
           {wishlist.length > 0 && (
